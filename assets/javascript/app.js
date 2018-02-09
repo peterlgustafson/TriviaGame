@@ -73,7 +73,7 @@ function check () {
 
 
 //Timer Function that begins once User Starts Game and lands on Questions.html page
-var timeLeft = 5;
+var timeLeft = 60;
 var elem = document.getElementById("#timer");
 var timerId = setInterval(countdown, 1000);
 
