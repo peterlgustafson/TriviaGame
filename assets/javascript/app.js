@@ -1,102 +1,89 @@
-//Document Ready Function
-$(document).ready(function () {
+function check () {
+    var question1 = document.quiz.question1.value;
+    var question2 = document.quiz.question2.value;
+    var question3 = document.quiz.question3.value;
+    var question4 = document.quiz.question4.value;
+    var question5 = document.quiz.question5.value;
+    var question6 = document.quiz.question6.value;
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
 
-  //Variables 
+        if (question1 === "Ben Zobrist") {
+            correctAnswers++;
+        } else if (question1 === "Kris Bryant" || "Anthony Rizzo" || "Javier Baez") {
+            incorrectAnswers++;
+        } else if (question1 === "") {
+          unanswered++;
+        };
+        if (question2 === "1985") {
+            correctAnswers++;
+        } else if (question2 != "1985") {
+            incorrectAnswers++;
+        };
 
-  //Variable to Call Current Question
-  var currentQuestion = 0;
+        if (question3 === "6") {
+            correctAnswers++;
+        } else if (question3 != "6") {
+            incorrectAnswers++;
+        };
 
-  //Variable to log Correct Answers
-  var correctAnswers = 0;
+        if (question4 === "Ben Gordon") {
+            correctAnswers++;
+        } else if (question4 != "Ben Gordon") {
+            incorrectAnswers++;
+        };
 
-  //Variable to log Incorrect Answers
-  var incorrectAnswers = 0;
+        if (question5 === "Matt Forte") {
+            correctAnswers++;
+        } else if (question5 != "Matt Forte") {
+            incorrectAnswers++;
+        };
 
-  //Variable to log Unaswered Questions
-  var unanswered = 0;
+        if (question6 === "Lee Smith") {
+            correctAnswers++;
+        } else if (question6 != "Lee Smith") {
+            incorrectAnswers++;
+        };
 
-  //Variable to Log User's Selection
-  var userChoice;
+        var messages = ["Awesome job!", "That's just okay...", "Do you even watch sports?"];
+        var gifs = ["assets/images/success.gif", "assets/images/george-meh.gif", "assets/images/penguin-fail.gif"];
 
-  //For 30 Second Countdown Used for Each Question
-  var timer = 30;
+        var range;
 
-  //Variable that holds all Trivia Questions as Nesting Objects within an Array
-  var allQuestions = [{
-    question: "Who was the World Series MVP for the Chicago Cubs in 2016?",
-    choices: ["Ben Zobrist", "Kris Bryant", "Anthony Rizzo", "Javier Baez"],
-    answer: 0
-  }, {
-    question: "When was the last time the Chicago Bears won the Super Bowl?",
-    choices: ["1978", "1985", "1992", "2006"],
-    answer: 1
-  }, {
-    question: "Which former Chicago Bull has met with the President of North Korea, Kim Jong-Un?",
-    choices: ["Steve Kerr", "Scottie Pippen", "Dennis Rodman", "John Paxon"],
-    answer: 2
-  }, {
-    question: "What former NBA lottery pick is the last Chicago Bull to win the league’s 6th man of the year award?",
-    choices: ["Kirk Hinrich", "Ben Gordon", "Tyrus Thomas", "Elton Brand"],
-    answer: 1
-  }, {
-    question: "Walter Payton is the Bears all-time leader in rushing yards. What former Bears RB ranks #2?",
-    choices: ["Gale Sayers", "Neal Anderson", "Rick Casares", "Matt Forte"],
-    answer: 3
-  }, {
-    question: "What 7-time All-Star reliever has the most saves in Chicago Cubs history?",
-    choices: ["Lee Smith", "Bruce Sutter", "Carlos Marmol", "Randy Myers"],
-    answer: 0
-  }
-];
+            if (correctAnswers > 3) {
+                range = 0;
+            }
+            if (correctAnswers > 1 && correctAnswers < 4) {
+                range = 1;
+            }
+            if (correctAnswers < 2) {
+                range = 2;
+            }
+    
+    document.getElementById("after-submit").style.visibility = "visible";
 
-  //Function to Use to Loop Through All Questions
-  function triviaQuizQuestion(question, choices, answer){
-    this.question = question;
-    this.choices = choices;
-    this.answer = answer;
-  };
+    document.getElementById("message").innerHTML = messages[range];       
+    document.getElementById("number-correct").innerHTML = "Correct Answers: " + correctAnswers;
+    document.getElementById("number-incorrect").innerHTML = "Incorrect Answers: " + incorrectAnswers;
+    document.getElementById("unanswered").innerHTML = "Unanswered Questions: " + unanswered;
+    document.getElementById("gifs").src = gifs[range];
 
-
-
-
-  //Function to Start Game once Start Button is Clicked
-  //Show 1st Question & choices w/ a 30 Second Timer with ability for user to select their answer
-  //After user submits answer show if the user selction is correct or incorrect along w/ corresponding image
-  //if timer === 0 show message that time is up and show correct answer along w/corresponding image
-
-  // Use jQuery to run "startTriviaQuiz" when user click the "start" button.
-$("#start-button").on("click", function () {
-  alert("Test");
-  startTriviaQuiz();
-});
-
-startTriviaQuiz = function () {
-  $("#question").html(triviaQuestions[0]);
-}
-
-function displayQuestion() {
-  $("#question").html(questions[count])
 };
 
 
-  // $("#start-button").on("click", function () {
-  //   $(".jumbotron").html("<div>");
-  //   $(".jumbotron").
+//Timer Function that begins once User Starts Game and lands on Questions.html page
+var timeLeft = 60;
+var elem = document.getElementById("#timer");
+var timerId = setInterval(countdown, 1000);
 
-  //   // $(".timer-countdown").text("Time is up in " + secondsRemaining + " seconds");
-  // });
-
-//Function to Show Questions 2-6
-//30 Second Timer, show if the user selction is correct or incorrect, 
-//if timer runs out show message that time is up and show correct answer
-
-//Function to show Final Results Page
-//Show # of Correct Answers, Incorrect Answers & # of Questions Unanswered 
-
-//Function to Reset Game: On Results page have a "Start Over" button that executes Reset function which resets back to 1st question
-
-
-
-
-
-});
+function countdown() {
+if (timeLeft === 0) {
+clearTimeout(timerId);
+incorrectAnswers++;
+document.getElementById("timer").innerHTML = "Time is up!";
+} else {
+$("#timer").text(timeLeft + " seconds remaining");
+timeLeft--;
+}
+};

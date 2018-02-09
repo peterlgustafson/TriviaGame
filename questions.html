@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chicago Sports Triva Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+    <h1>Chicago Sports Trivia Game</h1>
+
+    <div id="timer"></div>
+
+    <form id="quiz" name="quiz">
+
+        <p>Who was the World Series MVP for the Chicago Cubs in 2016?</p>
+        <input type="radio" id="mc" name="question1" value="Ben Zobrist">Ben Zobrist<br>
+        <input type="radio" id="mc" name="question1" value="Kris Bryant">Kris Bryant<br>
+        <input type="radio" id="mc" name="question1" value="Anthony Rizzo">Anthony Rizzo<br>
+        <input type="radio" id="mc" name="question1" value="Javier Baez">Javier Baez<br>
+
+        <p>When was the last time the Chicago Bears won the Super Bowl?</p>
+        <input type="radio" id="mc" name="question2" value="1978">1978<br>
+        <input type="radio" id="mc" name="question2" value="1985">1985<br>
+        <input type="radio" id="mc" name="question2" value="1992">1992<br>
+        <input type="radio" id="mc" name="question2" value="2006">2006<br>
+
+        <p>How many Stanley Cup Championships have the Chicago Blackhawks won since their inception as an NHL franchise in 1926?</p>
+        <input type="radio" id="mc" name="question3" value="3">3<br>
+        <input type="radio" id="mc" name="question3" value="5">5<br>
+        <input type="radio" id="mc" name="question3" value="6">6<br>
+        <input type="radio" id="mc" name="question3" value="7">7<br>
+
+        <p>What former NBA lottery pick is the last Chicago Bull to win the league’s 6th man of the year award?</p>
+        <input type="radio" id="mc" name="question4" value="Kirk Hinrich">Kirk Hinrich<br>
+        <input type="radio" id="mc" name="question4" value="Ben Gordon">Ben Gordon<br>
+        <input type="radio" id="mc" name="question4" value="Tyrus Thomas">Tyrus Thomas<br>
+        <input type="radio" id="mc" name="question4" value="Elton Brand">Elton Brand<br>
+
+        <p>Walter Payton is the Bears all-time leader in rushing yards. What former Bears RB ranks #2?</p>
+        <input type="radio" id="mc" name="question5" value="Gale Sayers">Gale Sayers<br>
+        <input type="radio" id="mc" name="question5" value="Nick Anderson">Nick Anderson<br>
+        <input type="radio" id="mc" name="question5" value="Rick Casares">Rick Casares<br>
+        <input type="radio" id="mc" name="question5" value="Matt Forte">Matt Forte<br>
+
+        <p>What 7-time All-Star reliever has the most saves in Chicago Cubs history?</p>
+        <input type="radio" id="mc" name="question6" value="Lee Smith">Lee Smith<br>
+        <input type="radio" id="mc" name="question6" value="Bruce Sutter">Bruce Sutter<br>
+        <input type="radio" id="mc" name="question6" value="Carlos Marmol">Carlos Marmol<br>
+        <input type="radio" id="mc" name="question6" value="Randy Myers">Randy Myers<br>
+        
+        <input type="button" id="button" value="Submit" onclick="check();">
+
+    </form>
+
+    <div id="after-submit">
+        <p id="message"></p>
+        <p id="number-correct"></p>
+        <p id="number-incorrect"></p>
+        <p id="unanswered"></p>
+        <br>
+        <img id="gifs">
+        <br>
+        <a href="questions-1.html"><button>Start Over</button></a> 
+    </div>
+
+
+    
+</body>
+</html>

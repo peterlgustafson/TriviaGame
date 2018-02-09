@@ -1,7 +1,98 @@
 * {
+    font-family: 'PT Sans', sans-serif;
+}
+#jumbotron-start
+ {
+    padding: 10px;
+    margin: 0;
+    width: 100%;
     text-align: center;
 }
-/* .jumbotron {
-    padding: 30px;
-    margin: 0;
-} */
+
+#timer {
+    font-size: 34px;
+    font-style: bolder;
+} 
+
+#quiz,
+#after-submit 
+{
+    margin-left: 20px;
+    background-color: silver;
+	padding: 10px 20px 10px 20px;
+    width: 50%;
+    border-radius: 20px;
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.answers {
+    margin: 20px;
+}
+
+#after-submit {
+    visibility: hidden;
+}
+
+h1,
+#timer {
+    position: relative;
+    top: 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+#timer {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+input {
+    margin-bottom: 20px;
+    display: block;
+}
+
+#button {
+    background-color: darkblue;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    transition-duration: .5s;
+}
+
+#button:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+#after-submit {
+    visibility: hidden;
+    background-color: darkblue;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    width: 45%;
+    border-radius: 10px;
+    float: left;
+    margin-left: 20px;
+    font-size: 28px;
+}
+
+#mc {
+    display: inline;
+}
+
+#value {
+    margin-left: 20px;
+}
+
+p {
+    font-weight: bolder;
+}
