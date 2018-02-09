@@ -9,42 +9,41 @@ function check () {
     var incorrectAnswers = 0;
     var unanswered = 0;
 
-        if (question1 === "Ben Zobrist") {
-            correctAnswers++;
-        } else if (question1 === "Kris Bryant" || "Anthony Rizzo" || "Javier Baez") {
-            incorrectAnswers++;
-        } else if (question1 === "") {
+        if (question1 === "") {
           unanswered++;
-        };
-        if (question2 === "1985") {
+        } else if (question1 === "Ben Zobrist") {
             correctAnswers++;
-        } else if (question2 != "1985") {
-            incorrectAnswers++;
-        };
+        } else incorrectAnswers++;
+      
+        if (question2 === "") {
+          unanswered++;  
+        } else if (question2 === "1985") {
+            correctAnswers++;
+        } else incorrectAnswers++;
 
-        if (question3 === "6") {
+        if (question3 === "") {
+            unanswered++;
+        } else if (question3 === "6") {
             correctAnswers++;
-        } else if (question3 != "6") {
-            incorrectAnswers++;
-        };
+        } else incorrectAnswers++;
 
-        if (question4 === "Ben Gordon") {
+        if (question4 === "") {
+            unanswered++;
+        } else if (question4 === "Ben Gordon") {
             correctAnswers++;
-        } else if (question4 != "Ben Gordon") {
-            incorrectAnswers++;
-        };
+        } else incorrectAnswers++;
 
-        if (question5 === "Matt Forte") {
+        if (question5 === "") {
+            unanswered++;
+        } else if (question5 === "Matt Forte") {
             correctAnswers++;
-        } else if (question5 != "Matt Forte") {
-            incorrectAnswers++;
-        };
+        } else incorrectAnswers++;
 
-        if (question6 === "Lee Smith") {
+        if (question6 === "") {
+            unanswered++;
+        } else if (question6 === "Lee Smith") {
             correctAnswers++;
-        } else if (question6 != "Lee Smith") {
-            incorrectAnswers++;
-        };
+        } else incorrectAnswers++;
 
         var messages = ["Awesome job!", "That's just okay...", "Do you even watch sports?"];
         var gifs = ["assets/images/success.gif", "assets/images/george-meh.gif", "assets/images/penguin-fail.gif"];
@@ -69,19 +68,20 @@ function check () {
     document.getElementById("unanswered").innerHTML = "Unanswered Questions: " + unanswered;
     document.getElementById("gifs").src = gifs[range];
 
+    clearTimeout(timerId);
 };
 
 
 //Timer Function that begins once User Starts Game and lands on Questions.html page
-var timeLeft = 60;
+var timeLeft = 5;
 var elem = document.getElementById("#timer");
 var timerId = setInterval(countdown, 1000);
 
 function countdown() {
 if (timeLeft === 0) {
 clearTimeout(timerId);
-incorrectAnswers++;
 document.getElementById("timer").innerHTML = "Time is up!";
+check();
 } else {
 $("#timer").text(timeLeft + " seconds remaining");
 timeLeft--;

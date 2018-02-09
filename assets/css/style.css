@@ -96,3 +96,7 @@ input {
 p {
     font-weight: bolder;
 }
+
+button {
+    margin-top: 20px;
+}
